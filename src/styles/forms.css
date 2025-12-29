@@ -1,0 +1,218 @@
+/* ================== PAGE WRAPPER ================== */
+.page {
+    max-width: 640px;
+    padding: 24px 32px;
+    background: transparent;
+}
+
+/* ================== TITLE ================== */
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #020617;
+    margin-bottom: 28px;
+}
+
+/* ================== FORM ================== */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ================== FORM GROUP ================== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ================== LABEL ================== */
+.form-label {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* ================== INPUT / SELECT / TEXTAREA ================== */
+.form-input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background: #ffffff;
+    color: #020617;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {  
+    color: #9ca3af;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-input:hover:not(:focus) {
+    border-color: #60a5fa;
+    box-shadow: 0 6px 14px rgba(96, 165, 250, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ================== FORM ACTIONS ================== */
+.form-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 5px;
+}
+
+/* Primary Button (Update) */
+.form-submit-btn {
+    max-width: fit-content;
+    padding: 12px 26px;
+    border-radius: 12px;
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    pointer-events: auto;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.form-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Secondary Button (Cancel) */
+.form-cancel-btn {
+    max-width: fit-content;
+    padding: 12px 26px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.form-cancel-btn:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #020617;
+}
+
+.form-cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ================== VERIFIED ACCOUNT BOX ================== */
+.verified-box {
+    background: linear-gradient(180deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: -6px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ================== VERIFIED LABEL ================== */
+.verified-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0369a1;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ================== VERIFIED SUB TEXT ================== */
+.verified-sub {
+    font-size: 13px;
+    color: #075985;
+}
+
+/* ================== DISABLED INPUT ================== */
+.form-input:disabled {
+    background: #f8fafc;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+/* ================== SUBTLE FORM DIVIDER ================== */
+.form-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    margin: 12px 0;
+}
+
+/* ==================  PAGINATION  ==================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 6px;
+}
+
+.page-btn {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.page-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.page-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.page-btn.active {
+    background-color: #1976d2;
+    color: #fff;
+    border-color: #1976d2;
+}
+
+/* ===== Balance Highlight ===== */
+.verified-sub {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ==================  RESPONSIVE  ==================== */
+@media (max-width: 768px) {
+    .page {
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+}

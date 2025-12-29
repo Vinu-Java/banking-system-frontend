@@ -1,0 +1,164 @@
+.transactions-page {
+    padding: 24px;
+}
+
+.transactions-page h2 {
+    margin-bottom: 16px;
+    color: #0f172a;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.transactions-table th,
+.transactions-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.transactions-table th {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.credit {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.debit {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.status.success {
+    color: #16a34a;
+}
+
+.status.pending {
+    color: #f59e0b;
+}
+
+/* ======================================================
+/* ======================================================
+/* ====================================================== */
+
+
+/* ================== TABLE WRAPPER ================== */
+.table-wrapper {
+    margin-top: 28px;
+    overflow-x: auto;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
+}
+
+/* ================== TABLE ================== */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    font-size: 14px;
+}
+
+/* ================== HEADER ================== */
+.transaction-table thead {
+    background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+}
+
+.transaction-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+    color: #334155;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+/* ================== ROWS ================== */
+.transaction-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #020617;
+    white-space: nowrap;
+}
+
+.transaction-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.transaction-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ================== AMOUNT ALIGNMENT ================== */
+.transaction-table td:nth-child(3),
+.transaction-table td:nth-child(4) {
+    font-weight: 600;
+}
+
+/* ================== TRANSACTION TYPE BADGES ================== */
+.tx-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Deposit */
+.tx-type.deposit {
+    background: linear-gradient(180deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+/* Withdraw */
+.tx-type.withdraw {
+    background: linear-gradient(180deg, #fee2e2, #fecaca);
+    color: #991b1b;
+}
+
+/* Transfer */
+.tx-type.transfer {
+    background: linear-gradient(180deg, #e0f2fe, #bae6fd);
+    color: #075985;
+}
+
+/* ================== EMPTY STATE ================== */
+.no-transactions {
+    margin-top: 24px;
+    padding: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px dashed #e5e7eb;
+}
+
+/* ================== PAGINATION ================== */
+.pagination {
+    margin-top: 24px;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+    .transaction-table {
+        min-width: 600px;
+    }
+
+    .transaction-table th,
+    .transaction-table td {
+        padding: 12px 14px;
+    }
+}
