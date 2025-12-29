@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "../../styles/forms.css";
-import "../../styles/transactions.css";
+import "../../styles/Transactions.css";
 import { getTransactionsByAccount } from "../../services/api";
 import { getAccountNumber } from "../../services/auth";
 
