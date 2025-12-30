@@ -1,4 +1,4 @@
-import "../styles/transactions.css";
+import "../styles/Transactions.css";
 
 export default function TransactionFilters({
   filters,

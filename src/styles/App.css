@@ -162,7 +162,6 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    pointer-events: none;
 }
 
 .show-btn span {
@@ -174,12 +173,9 @@
     transition: opacity 0.2s ease;
 }
 
-/* Visible ONLY when input is focused */
-.password-field input:focus+.show-btn {
-    pointer-events: auto;
-}
-
-.password-field input:focus+.show-btn span {
+/* show when input focused OR password has value */
+.password-field:focus-within .show-btn span,
+.password-field input:not(:placeholder-shown)+.show-btn span {
     opacity: 1;
 }
 
