@@ -11,15 +11,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         Prev
       </button>
 
-      {[...Array(totalPages)].map((_, index) => (
-        <button
-          key={index}
-          className={`page-btn ${currentPage === index ? "active" : ""}`}
-          onClick={() => onPageChange(index)}
-        >
-          {index + 1}
-        </button>
-      ))}
+      <span className="page-info">
+        Page {currentPage + 1} of {totalPages}
+      </span>
 
       <button
         className="page-btn"

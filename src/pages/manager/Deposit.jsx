@@ -153,7 +153,7 @@ export default function Deposit() {
               className="form-input"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              min="1"
+              min="100"
             />
           </div>
 

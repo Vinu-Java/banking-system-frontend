@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { getTransactions } from "../../../services/api";
+import {
+  getAllTransactionsByDate,
+  getAllTransactionsByType,
+} from "../../../services/api";
 import TransactionFilters from "./TransactionFilters";
 import TransactionTable from "./TransactionTable";
 import Pagination from "./Pagination";
@@ -11,7 +14,7 @@ export default function Transactions() {
     accountNumber: "",
     fromDate: "",
     toDate: "",
-    transactionType: "",
+    transactionType: "ALL", 
     pageNumber: 0,
     size: 5,
   });
@@ -21,27 +24,54 @@ export default function Transactions() {
   const [loading, setLoading] = useState(false);
 
   const fetchTransactions = async (page = 0) => {
-    if (!filters.fromDate || !filters.toDate) {
-      toast.error("From date and To date are required");
+    if (!filters.accountNumber) {
+      toast.error("Account number is required");
       return;
     }
 
     setLoading(true);
 
     try {
-      const payload = {
-        ...filters,
+      let payload;
+      let res;
+
+      if (filters.transactionType === "ALL") {
+        payload = {
+          accountNumber: filters.accountNumber,
+          pageNumber: page,
+          size: filters.size,
+        };
+
+        res = await getAllTransactionsByDate(payload);
+      }
+
+      else {
+        if (!filters.fromDate || !filters.toDate) {
+          toast.error("From date and To date are required");
+          setLoading(false);
+          return;
+        }
+
+        payload = {
+          accountNumber: filters.accountNumber,
+          fromDate: filters.fromDate,
+          toDate: filters.toDate,
+          pageNumber: page,
+          size: filters.size,
+          transactionType: filters.transactionType,
+        };
+
+        res = await getAllTransactionsByType(payload);
+      }
+
+      setTransactions(res.content || []);
+      setTotalPages(res.totalPages || 0);
+
+      setFilters((prev) => ({
+        ...prev,
         pageNumber: page,
-        transactionType: filters.transactionType || null,
-        accountNumber: filters.accountNumber || null,
-      };
-
-      const res = await getTransactions(payload);
-
-      setTransactions(res.content);
-      setTotalPages(res.totalPages);
-      setFilters({ ...filters, pageNumber: page });
-    } catch {
+      }));
+    } catch (error) {
       toast.error("Failed to load transactions");
     } finally {
       setLoading(false);
@@ -59,7 +89,7 @@ export default function Transactions() {
         loading={loading}
       />
 
-      <TransactionTable transactions={transactions} />
+      <TransactionTable transactions={transactions} loading={loading} />
 
       <Pagination
         currentPage={filters.pageNumber}

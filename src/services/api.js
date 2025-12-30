@@ -22,6 +22,14 @@ export const getProfile = async () => {
   return response.data;
 };
 
+export const getBalance = async (accountNumber, password) => {
+  const res = await api.post("/account/balance", {
+    accountNumber,
+    password,
+  });
+  return res.data;
+};
+
 export const createAccount = async (payload) => {
   const response = await api.post("/admin/create", payload);
   // console.log("API: " , response.data);
@@ -55,8 +63,24 @@ export const transferAmount = (payload) => {
   return api.post("/admin/transfer", payload);
 };
 
-export const getTransactions = async (payload) => {
-  const res = await api.get("/admin/transactions/all", payload);
+export const getAllTransactionsByDate = async (payload) => {
+  const res = await api.post("/transaction/search/all", payload);
+  return res.data;
+};
+
+export const getAllTransactionsByType = async (payload) => {
+  const res = await api.post("/transaction/search/by-type", payload);
+  return res.data;
+};
+
+// ========== in-completed api's
+export const getTransactionsByDate = async (payload) => {
+  const res = await api.post("/transaction/search/by-date", payload);
+  return res.data;
+};
+
+export const getTransactionsByDateAndType = async (payload) => {
+  const res = await api.post("/transaction/search", payload);
   return res.data;
 };
 
@@ -66,10 +90,4 @@ export const getTransactionsByAccount = async (payload) => {
   return res.data;
 };
 
-export const getBalance = async (accountNumber, password) => {
-  const res = await api.post("/account/balance", {
-    accountNumber,
-    password,
-  });
-  return res.data;
-};
+

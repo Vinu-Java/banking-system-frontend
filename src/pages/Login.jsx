@@ -7,6 +7,7 @@ export default function Login() {
   const [accountNumber, setAccountNumber] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -84,14 +85,24 @@ export default function Login() {
             onChange={(e) => setAccountNumber(e.target.value)}
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password-field">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <button type="submit" disabled={loading}>
+            <button
+              type="button"
+              className="show-btn"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <span>{showPassword ? "Hide" : "Show"}</span>
+            </button>
+          </div>
+
+          <button className="login-btn" type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>

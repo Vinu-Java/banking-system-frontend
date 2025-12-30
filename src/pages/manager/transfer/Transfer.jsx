@@ -201,7 +201,7 @@ export default function Transfer() {
               className="form-input"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              min="1"
+              min="100"
               max={fromAccount.balance}
             />
           </div>

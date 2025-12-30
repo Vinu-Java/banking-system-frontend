@@ -1,164 +1,260 @@
-.transactions-page {
-    padding: 24px;
+/* ================= PAGE LAYOUT ================= */
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    background: #f8fafc;
+    min-height: 100vh;
 }
 
-.transactions-page h2 {
-    margin-bottom: 16px;
-    color: #0f172a;
-}
-
-.transactions-table {
-    width: 100%;
-    border-collapse: collapse;
+/* ================= FILTER CARD ================= */
+.filter-card {
     background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 18px 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    margin-bottom: 24px;
+    width: 100%;
 }
 
-.transactions-table th,
-.transactions-table td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+/* 2-row grid */
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+    margin-left: 10px;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
     font-size: 14px;
 }
 
-.transactions-table th {
-    background: #f1f5f9;
-    color: #334155;
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb;
 }
 
-.credit {
-    color: #16a34a;
-    font-weight: 500;
+/* ================= ACTIONS ================= */
+.filter-actions {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.debit {
-    color: #dc2626;
-    font-weight: 500;
+.form-submit-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
 }
 
-.status.success {
-    color: #16a34a;
+.form-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
 }
 
-.status.pending {
-    color: #f59e0b;
-}
-
-/* ======================================================
-/* ======================================================
-/* ====================================================== */
-
-
-/* ================== TABLE WRAPPER ================== */
+/* ================= TABLE WRAPPER ================= */
 .table-wrapper {
-    margin-top: 28px;
-    overflow-x: auto;
-    border-radius: 14px;
+    margin-top: 20px;
     background: #ffffff;
-    box-shadow: 0 10px 25px rgba(2, 6, 23, 0.06);
+    border-radius: 14px;
+    overflow-x: auto;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-/* ================== TABLE ================== */
+/* ================= TABLE ================= */
 .transaction-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 720px;
+    /* IMPORTANT */
+    table-layout: fixed;
+    /* FIX ALIGNMENT */
     font-size: 14px;
 }
 
-/* ================== HEADER ================== */
+/* ================= HEADER ================= */
 .transaction-table thead {
-    background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+    background: #f8fafc;
 }
 
 .transaction-table th {
     padding: 14px 16px;
-    text-align: left;
+    font-size: 12px;
     font-weight: 700;
-    color: #334155;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     border-bottom: 1px solid #e5e7eb;
-    white-space: nowrap;
+    text-align: left;
 }
 
-/* ================== ROWS ================== */
+/* ================= BODY ================= */
 .transaction-table td {
-    padding: 13px 16px;
+    padding: 14px 16px;
     border-bottom: 1px solid #e5e7eb;
     color: #020617;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.transaction-table tbody tr {
-    transition: background-color 0.2s ease;
+/* ================= ROW EFFECTS ================= */
+.transaction-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
 }
 
 .transaction-table tbody tr:hover {
-    background-color: #f8fafc;
+    background-color: #f1f5f9;
 }
 
-/* ================== AMOUNT ALIGNMENT ================== */
-.transaction-table td:nth-child(3),
-.transaction-table td:nth-child(4) {
+/* ================= COLUMN WIDTHS ================= */
+/* ID */
+.transaction-table th:nth-child(1),
+.transaction-table td:nth-child(1) {
+    width: 10%;
+}
+
+/* Type */
+.transaction-table th:nth-child(2),
+.transaction-table td:nth-child(2) {
+    width: 20%;
+    text-align: left;
+}
+.transaction-table th:nth-child(2) {
+    padding-left: 28px;
+}
+
+/* Amount */
+.transaction-table th:nth-child(3),
+.transaction-table td:nth-child(3) {
+    width: 18%;
+    text-align: right;
     font-weight: 600;
 }
 
-/* ================== TRANSACTION TYPE BADGES ================== */
+/* Balance */
+.transaction-table th:nth-child(4),
+.transaction-table td:nth-child(4) {
+    width: 20%;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Date */
+.transaction-table th:nth-child(5),
+.transaction-table td:nth-child(5) {
+    width: 32%;
+    color: #475569;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Body */
+.transaction-table td:nth-child(5) {
+    text-align: center;
+}
+
+/* ================= TRANSACTION TYPE ================= */
 .tx-type {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 999px;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
-/* Deposit */
+/* Types */
 .tx-type.deposit {
-    background: linear-gradient(180deg, #dcfce7, #bbf7d0);
-    color: #166534;
+    background: #ecfdf5;
+    color: #047857;
 }
 
-/* Withdraw */
 .tx-type.withdraw {
-    background: linear-gradient(180deg, #fee2e2, #fecaca);
-    color: #991b1b;
+    background: #fef2f2;
+    color: #b91c1c;
 }
 
-/* Transfer */
 .tx-type.transfer {
-    background: linear-gradient(180deg, #e0f2fe, #bae6fd);
-    color: #075985;
+    background: #eff6ff;
+    color: #1d4ed8;
 }
 
-/* ================== EMPTY STATE ================== */
-.no-transactions {
+/* Fallback */
+.tx-type.unknown {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e5e7eb;
+}
+
+/* ================= EMPTY STATE ================= */
+.empty-msg {
     margin-top: 24px;
-    padding: 18px;
+    padding: 20px;
     text-align: center;
     font-size: 14px;
     color: #64748b;
     background: #f8fafc;
     border-radius: 12px;
-    border: 1px dashed #e5e7eb;
+    border: 1px dashed #cbd5f5;
 }
 
-/* ================== PAGINATION ================== */
+/* ================= PAGINATION ================= */
 .pagination {
-    margin-top: 24px;
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
 }
 
-/* ================== RESPONSIVE ================== */
+.page-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #f1f5f9;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-    .transaction-table {
-        min-width: 600px;
+    .filter-grid {
+        grid-template-columns: 1fr;
     }
 
-    .transaction-table th,
-    .transaction-table td {
-        padding: 12px 14px;
+    .transaction-table {
+        min-width: 640px;
     }
 }
