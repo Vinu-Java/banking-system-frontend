@@ -17,7 +17,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 10px;
 }
 
 /* ================== FORM GROUP ================== */
@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 10px;
 }
 
 /* ================== LABEL ================== */
@@ -67,6 +68,7 @@
     display: flex;
     gap: 14px;
     margin-top: 5px;
+    justify-content: center;
 }
 
 /* Primary Button (Update) */
@@ -204,6 +206,38 @@
 .verified-sub {
     font-size: 18px;
     font-weight: 700;
+}
+
+/* ================== DETAILS ROW ================== */
+.details-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+/* Label */
+.details-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Value */
+.details-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #020617;
+}
+
+/* Subtle divider */
+.details-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    margin: 14px 0;
 }
 
 /* ==================  RESPONSIVE  ==================== */

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createAccount } from "../../services/api";
 import { toast } from "react-toastify";
 import "../../styles/forms.css";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_FORM = {
   name: "",
@@ -50,17 +50,20 @@ export default function CreateAccount() {
     setLoading(true);
 
     try {
-      await createAccount({
+      const response = await createAccount({
         ...form,
+        name: form.name?.trim().toUpperCase(),
+        email: form.email?.trim().toLowerCase(),
         initialBalance: Number(form.initialBalance || 0),
       });
 
       toast.success("Account created successfully");
-      setForm(INITIAL_FORM);
-      navigate("/manager/dashboard", replace);
-    } catch (err) {
-      console.error(err);
 
+      // navigate to account details page with created account data
+      navigate(`/account-details/${response.accountNumber}`, {
+        replace: true,
+      });
+    } catch (err) {
       const message =
         err?.response?.data?.message ||
         err?.message ||
@@ -73,8 +76,6 @@ export default function CreateAccount() {
   };
 
   const handleCancel = () => {
-    setForm(INITIAL_FORM);
-    setLoading(false);
     navigate("/manager/dashboard", { replace: true });
   };
 
@@ -83,6 +84,7 @@ export default function CreateAccount() {
       <h2 className="page-title">Create New Account</h2>
 
       <form className="form" onSubmit={handleSubmit}>
+
         <div className="form-group">
           <label className="form-label">Name</label>
           <input
@@ -91,7 +93,6 @@ export default function CreateAccount() {
             className="form-input"
             value={form.name}
             onChange={handleChange}
-            placeholder="Enter full name"
             required
           />
         </div>
@@ -104,11 +105,11 @@ export default function CreateAccount() {
             className="form-input"
             value={form.email}
             onChange={handleChange}
-            placeholder="Enter email"
             required
           />
         </div>
 
+        {/* Phone */}
         <div className="form-group">
           <label className="form-label">Phone</label>
           <input
@@ -117,11 +118,11 @@ export default function CreateAccount() {
             className="form-input"
             value={form.phone}
             onChange={handleChange}
-            placeholder="10 digit phone number"
             required
           />
         </div>
 
+        {/* Password */}
         <div className="form-group">
           <label className="form-label">Password</label>
           <input
@@ -130,11 +131,11 @@ export default function CreateAccount() {
             className="form-input"
             value={form.password}
             onChange={handleChange}
-            placeholder="Minimum 6 characters"
             required
           />
         </div>
 
+        {/* Account Type */}
         <div className="form-group">
           <label className="form-label">Account Type</label>
           <select
@@ -150,6 +151,7 @@ export default function CreateAccount() {
           </select>
         </div>
 
+        {/* Initial Balance */}
         <div className="form-group">
           <label className="form-label">Initial Balance</label>
           <input
@@ -158,7 +160,6 @@ export default function CreateAccount() {
             className="form-input"
             value={form.initialBalance}
             onChange={handleChange}
-            placeholder="0 or more"
             min="0"
           />
         </div>
@@ -167,6 +168,7 @@ export default function CreateAccount() {
           <button type="submit" className="form-submit-btn" disabled={loading}>
             {loading ? "Creating..." : "Create Account"}
           </button>
+
           <button
             type="button"
             className="form-cancel-btn"

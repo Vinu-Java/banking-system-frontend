@@ -73,21 +73,3 @@ export const getAllTransactionsByType = async (payload) => {
   return res.data;
 };
 
-// ========== in-completed api's
-export const getTransactionsByDate = async (payload) => {
-  const res = await api.post("/transaction/search/by-date", payload);
-  return res.data;
-};
-
-export const getTransactionsByDateAndType = async (payload) => {
-  const res = await api.post("/transaction/search", payload);
-  return res.data;
-};
-
-export const getTransactionsByAccount = async (payload) => {
-  // const res = await api.get("/user/transactions", {accountNumber});
-  const res = await api.post("/user/transaction/all", payload);
-  return res.data;
-};
-
-

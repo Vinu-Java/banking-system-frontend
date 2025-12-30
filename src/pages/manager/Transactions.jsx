@@ -3,11 +3,11 @@ import { toast } from "react-toastify";
 import {
   getAllTransactionsByDate,
   getAllTransactionsByType,
-} from "../../../services/api";
-import TransactionFilters from "./TransactionFilters";
-import TransactionTable from "./TransactionTable";
-import Pagination from "./Pagination";
-import "../../../styles/forms.css";
+} from "../../services/api";
+import TransactionFilters from "../../components/TransactionFilters";
+import TransactionTable from "../../components/TransactionTable";
+import Pagination from "../../components/Pagination";
+import "../../styles/forms.css";
 
 export default function Transactions() {
   const [filters, setFilters] = useState({

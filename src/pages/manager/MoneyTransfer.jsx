@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import {
   getAccountByAccountNumber,
   transferAmount,
-} from "../../../services/api";
-import AccountVerify from "./AccountVerify";
-import VerifiedAccount from "./VerifiedAccount";
-import "../../../styles/forms.css";
+} from "../../services/api";
+import AccountVerify from "../../components/AccountVerify";
+import VerifiedAccount from "../../components/VerifiedAccount";
+import "../../styles/forms.css";
 
 export default function Transfer() {
   const [fromAcc, setFromAcc] = useState("");
