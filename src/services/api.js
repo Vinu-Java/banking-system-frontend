@@ -23,16 +23,20 @@ export const getProfile = async () => {
 };
 
 export const getBalance = async (accountNumber, password) => {
-  const res = await api.post("/account/balance", {
+  const res = await api.post("/account/balance/by-user", {
     accountNumber,
     password,
   });
   return res.data;
 };
 
+export const getBalanceByManager = async (accountNumber) => {
+  const res = await api.post("/account/balance/by-manager", { accountNumber });
+  return res.data;
+};
+
 export const createAccount = async (payload) => {
   const response = await api.post("/admin/create", payload);
-  // console.log("API: " , response.data);
   return response.data;
 };
 

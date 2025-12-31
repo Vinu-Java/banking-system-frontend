@@ -21,6 +21,7 @@ import BalanceEnquiry from "./pages/user/BalanceEnquiry";
 import AccountDetails from "./pages/manager/AccountDetails";
 import UserTransfer from "./pages/user/UserTransfer";
 import Profile from "./pages/Profile";
+import ManagerBalanceEnquiry from "./pages/manager/ManagerBalanceEnquiry";
 
 function App() {
   return (
@@ -57,7 +58,7 @@ function App() {
             <Route element={<RoleRoute allowedRoles={["USER"]} />}>
               <Route element={<MainLayout />}>
                 <Route path="/dashboard" element={<UserDashboard />} />
-                <Route path="/balance-enquiry" element={<BalanceEnquiry />} />
+                <Route path="/user/balance-enquiry" element={<BalanceEnquiry />} />
                 <Route path="/user-transfer" element={<UserTransfer />} />
                 <Route path="/transactions" element={<UserTransactions />} />
                 <Route path="/profile" element={<Profile />} />
@@ -72,6 +73,7 @@ function App() {
                   path="/manager/dashboard"
                   element={<ManagerDashboard />}
                 />
+                <Route path="/manager/balance-enquiry" element={<ManagerBalanceEnquiry />} />
                 <Route
                   path="/account-details/:accountNumber"
                   element={<AccountDetails />}

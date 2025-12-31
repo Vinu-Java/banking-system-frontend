@@ -29,7 +29,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             </NavLink>
 
             <NavLink
-              to="/balance-enquiry"
+              to="/user/balance-enquiry"
               className="sidebar-link"
               onClick={handleLinkClick}
             >
@@ -70,6 +70,14 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
               onClick={handleLinkClick}
             >
               Dashboard
+            </NavLink>
+
+            <NavLink
+              to="/manager/balance-enquiry"
+              className="sidebar-link"
+              onClick={handleLinkClick}
+            >
+              Balance Enquiry
             </NavLink>
 
             <NavLink
