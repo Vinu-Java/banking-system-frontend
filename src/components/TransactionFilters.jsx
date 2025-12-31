@@ -10,7 +10,7 @@ export default function TransactionFilters({
   return (
     <div className="txn-filter-container">
       <div className="txn-filter-grid">
-        {/* Account Number (manager only) */}
+
         {!isUserPage && (
           <div className="txn-field">
             <label>Account Number</label>
@@ -24,7 +24,6 @@ export default function TransactionFilters({
           </div>
         )}
 
-        {/* Transaction Type */}
         <div className={`txn-field ${isUserPage ? "full-width" : ""}`}>
           <label>Transaction Type</label>
           <select
@@ -40,7 +39,6 @@ export default function TransactionFilters({
           </select>
         </div>
 
-        {/* Start Date */}
         <div className="txn-field">
           <label>Start Date</label>
           <input
@@ -52,7 +50,6 @@ export default function TransactionFilters({
           />
         </div>
 
-        {/* End Date */}
         <div className="txn-field">
           <label>End Date</label>
           <input
