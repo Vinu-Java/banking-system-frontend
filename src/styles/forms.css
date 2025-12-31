@@ -1,8 +1,9 @@
 /* ================== PAGE WRAPPER ================== */
 .page {
-    max-width: 640px;
+    width: 100%;
+    max-width: 100%;
     padding: 24px 32px;
-    background: transparent;
+    box-sizing: border-box;
 }
 
 /* ================== TITLE ================== */
@@ -18,6 +19,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 /* ================== FORM GROUP ================== */
@@ -26,6 +28,7 @@
     flex-direction: column;
     gap: 6px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 /* ================== LABEL ================== */
@@ -38,6 +41,10 @@
 
 /* ================== INPUT / SELECT / TEXTAREA ================== */
 .form-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     padding: 12px 14px;
     border-radius: 10px;
     border: 1px solid #d1d5db;
